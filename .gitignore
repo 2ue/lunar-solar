@@ -59,8 +59,8 @@ typings/
 
 
 .project
-.idea
+# .idea
 .vscode
 .history
-date-year
-date-year1
+# date-year
+# date-year1
