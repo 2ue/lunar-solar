@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const { startYear, endYear } = require('../utils/config');
 
-const mergeData = require('./merge-date');
+const mergeData = require('../merge/merge-date');
 
 //写入数据
 function writeFile(data, year, cb) {
@@ -22,7 +22,7 @@ function writeFile(data, year, cb) {
 
     //如果不存在就创建
     if (!dataPathIsExists) {
-        fs.mkdir(dataPath, function (err) {
+        fs.mkdir(dataPath, (err) => {
             if (err) {
                 console.log(`=====${year} 目录创建失败！${year} =====`);
                 return console.error(err);
@@ -35,19 +35,19 @@ function writeFile(data, year, cb) {
     writerStream = fs.createWriteStream(targetPath);
     writerStream.write(JSON.stringify(data, null, 4), 'utf-8');
     writerStream.end();//标记结束
-    writerStream.on('finish', function () {
+    writerStream.on('finish', () => {
         console.log(`=====${year} 数据写入完成！ ${year}=====`);
-    }).on('error', function (err) {
+    }).on('error', (err) => {
         console.log(err.stack);
         console.log(`=====${year} 数据写入失败！ ${year}=====`);
     });
     if (year < endYear) {
-        setTimeout(function () {
+        setTimeout(() => {
             cb(year + 1);
         }, 1500);
     } else {
         console.log('====> 开始汇总数据任务 =====>')
-        setTimeout(function () {
+        setTimeout(() => {
             mergeData(startYear, endYear);
         },2000)
     }

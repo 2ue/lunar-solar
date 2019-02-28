@@ -14,7 +14,7 @@ function mergeData(startYear, endYear) {
     let result = {};
 
     for (startYear; startYear <= endYear; startYear++) {
-        const data = JSON.parse(fs.readFileSync(`./date-year/${startYear}.json`, 'utf8'));
+        const data = JSON.parse(fs.readFileSync(`../date-year/${startYear}.json`, 'utf8'));
         // result.solarInfo = { ...result.solarInfo, ...data.solarInfo };
         // result.lunarInfo = { ...result.lunarInfo, ...data.lunarInfo };
         result = { ...result, ...data };
@@ -22,7 +22,7 @@ function mergeData(startYear, endYear) {
     }
 
     //汇总
-    const allTargetPath = path.join(__dirname, './data/all.json');
+    const allTargetPath = path.join(__dirname, '../data/all.json');
     writeJsonData(result, allTargetPath, '阴历阳历');
     // //阴历
     // const solarTargetPath = path.join(__dirname, './data/solar.json');
@@ -37,9 +37,9 @@ function mergeData(startYear, endYear) {
         writerStream = fs.createWriteStream(path);
         writerStream.write(JSON.stringify(data, null, 4), 'utf-8');
         writerStream.end();//标记结束
-        writerStream.on('finish', function () {
+        writerStream.on('finish', () => {
             console.log(`=====  ${msg}汇总数据汇总成功！ =====`);
-        }).on('error', function (err) {
+        }).on('error', (err) => {
             console.log(err.stack);
             console.log(`=====  ${msg}汇总数据汇总失败！ =====`);
         });

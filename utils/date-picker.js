@@ -3,15 +3,11 @@
  * 提供一些方法计算日期相关的数据
  */
 
-//数据采集
-//http://data.weather.gov.hk/gts/time/calendar/text/T1902c.txt
-
-var gan = '甲乙丙丁戊己庚辛壬癸'.split('');
-var zhi = '子丑寅卯辰巳午未申酉戌亥'.split('');
-var xiao = '鼠牛虎兔龙蛇马羊猴鸡狗猪'.split('');
-var shuzi = '一二三四五六七八九十';
-var chu = '初十廿';
-
+var TIAN_GAN = '甲乙丙丁戊己庚辛壬癸'.split('');
+var DI_ZHI = '子丑寅卯辰巳午未申酉戌亥'.split('');
+var SHENG_XIAO = '鼠牛虎兔龙蛇马羊猴鸡狗猪'.split('');
+var NUMBER_EN = '一二三四五六七八九十';
+var NUMBER_CN = '初十廿';
 
 
 //1901辛丑-肖牛
@@ -34,15 +30,15 @@ function fixedYM(year, month) {
 
 //获取天干
 function getTGan(year) {
-    return gan[(year + 6) % 10];
+    return TIAN_GAN[(year + 6) % 10];
 }
 //获取地支
 function getDZi(year) {
-    return zhi[(year - 4) % 12];
+    return DI_ZHI[(year - 4) % 12];
 }
 //获取生肖
 function getSXiao(year) {
-    return xiao[(year - 4) % 12];
+    return SHENG_XIAO[(year - 4) % 12];
 }
 
 //获取某年的某月有多少天
