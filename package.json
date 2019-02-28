@@ -1,28 +1,30 @@
 {
-  "name": "lunar-solar",
-  "version": "0.0.1",
-  "description": "yy",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/2ue/lunar-solar.git"
-  },
-  "keywords": [
-    "lunar",
-    "solar"
-  ],
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "iconv-lite": "^0.4.24",
-    "request": "^2.88.0"
-  },
-  "author": "2ue",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/2ue/lunar-solar/issues"
-  },
-  "homepage": "https://github.com/2ue/lunar-solar#readme"
+    "name": "lunar-solar",
+    "version": "0.0.1",
+    "description": "yy",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "spider": "node spider",
+        "merge": "node spider/merge-data"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/2ue/lunar-solar.git"
+    },
+    "keywords": [
+        "lunar",
+        "solar"
+    ],
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.2",
+        "iconv-lite": "^0.4.24",
+        "request": "^2.88.0"
+    },
+    "author": "2ue",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/2ue/lunar-solar/issues"
+    },
+    "homepage": "https://github.com/2ue/lunar-solar#readme"
 }
