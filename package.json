@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "spider": "node spider",
-        "merge": "node merge"
+        "merge": "node merge",
+        "push": "push.sh"
     },
     "repository": {
         "type": "git",

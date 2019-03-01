@@ -14,7 +14,7 @@ function mergeData(startYear, endYear) {
     let result = {};
 
     for (startYear; startYear <= endYear; startYear++) {
-        const data = JSON.parse(fs.readFileSync(`../date-year/${startYear}.json`, 'utf8'));
+        const data = JSON.parse(fs.readFileSync(path.join(__dirname, `../date-year/${startYear}.json`), 'utf8'));
         // result.solarInfo = { ...result.solarInfo, ...data.solarInfo };
         // result.lunarInfo = { ...result.lunarInfo, ...data.lunarInfo };
         result = { ...result, ...data };
